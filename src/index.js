@@ -117,32 +117,48 @@ class Game extends React.Component {
 
 class BackGammonBoard extends React.Component {
 
-  renderUpwardsPoint(i) {
-    return <button className="upwardsPoint"></button>;
-  }
-
-  renderDownwardsPoint(i) {
-    return <button className="downwardsPoint"></button>;
+  renderPoint(i) {
+    return <button className="point"></button>;
   }
 
   render() {
     return (
-      <div>
+      <div className="component-backgammonboard">
+      <div className="points-top">
         <div className="points-topleft">
-          {this.renderDownwardsPoint(0)}
-          {this.renderDownwardsPoint(1)}
-          {this.renderDownwardsPoint(2)}
-          {this.renderDownwardsPoint(3)}
-          {this.renderDownwardsPoint(4)}
-          {this.renderDownwardsPoint(5)}
+          {this.renderPoint(6)}
+          {this.renderPoint(7)}
+          {this.renderPoint(8)}
+          {this.renderPoint(9)}
+          {this.renderPoint(10)}
+          {this.renderPoint(11)}
         </div>
+        <div className="points-topright">
+          {this.renderPoint(0)}
+          {this.renderPoint(1)}
+          {this.renderPoint(2)}
+          {this.renderPoint(3)}
+          {this.renderPoint(4)}
+          {this.renderPoint(5)}
+        </div>
+        </div>
+        <div className="points-bottom">
         <div className="points-bottomleft">
-          {this.renderUpwardsPoint(6)}
-          {this.renderUpwardsPoint(7)}
-          {this.renderUpwardsPoint(8)}
-          {this.renderUpwardsPoint(9)}
-          {this.renderUpwardsPoint(10)}
-          {this.renderUpwardsPoint(11)}
+          {this.renderPoint(12)}
+          {this.renderPoint(13)}
+          {this.renderPoint(14)}
+          {this.renderPoint(15)}
+          {this.renderPoint(16)}
+          {this.renderPoint(17)}
+        </div>
+        <div className="points-bottomright">
+          {this.renderPoint(18)}
+          {this.renderPoint(19)}
+          {this.renderPoint(20)}
+          {this.renderPoint(21)}
+          {this.renderPoint(22)}
+          {this.renderPoint(23)}
+        </div>
         </div>
       </div>
     );
