@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+// ========================================
+// TIC TAC TOE CODE
 function Square(props){
   return(
   <button className="square" onClick={props.onClick}>
@@ -104,15 +106,65 @@ class Game extends React.Component {
           <div>{/* status */}</div>
           <ol>{/* TODO */}</ol>
         </div>
-        <button className="checker"></button>
+        
       </div>
     );
   }
 }
 
 // ========================================
+// BACKGAMMON CODE
+
+class BackGammonBoard extends React.Component {
+
+  renderUpwardsPoint(i) {
+    return <button className="upwardsPoint"></button>;
+  }
+
+  renderDownwardsPoint(i) {
+    return <button className="downwardsPoint"></button>;
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="points-topleft">
+          {this.renderDownwardsPoint(0)}
+          {this.renderDownwardsPoint(1)}
+          {this.renderDownwardsPoint(2)}
+          {this.renderDownwardsPoint(3)}
+          {this.renderDownwardsPoint(4)}
+          {this.renderDownwardsPoint(5)}
+        </div>
+        <div className="points-bottomleft">
+          {this.renderUpwardsPoint(6)}
+          {this.renderUpwardsPoint(7)}
+          {this.renderUpwardsPoint(8)}
+          {this.renderUpwardsPoint(9)}
+          {this.renderUpwardsPoint(10)}
+          {this.renderUpwardsPoint(11)}
+        </div>
+      </div>
+    );
+  }
+}
+
+class BackGammon extends React.Component {
+  render(){
+    return(
+      <div className="backGammon">
+        <button className="checker"></button>
+        <div className="backGammon-board">
+          <BackGammonBoard />
+        </div>
+      </div>
+    );
+  }
+}
+
+
 
 ReactDOM.render(
-  <Game />,
+  <BackGammon />,
   document.getElementById('root')
 );

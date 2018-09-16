@@ -57,5 +57,38 @@ ol, ul {
   background-color: rgb(248, 3, 3);
   border-radius: 50%;
   display: inline-block;
+  
+  padding: 0;
 
+}
+
+.checker:focus { 
+  outline: none;
+  border: 10px solid rgb(211, 253, 23);
+}
+
+.upwardsPoint{
+  width: 0;
+	height: 450;
+	border-right: 45px solid transparent;
+	border-bottom: 450px solid rgb(0, 255, 234);
+  border-left: 45px solid transparent;
+  padding: 0;
+}
+
+.upwardsPoint:focus { 
+  outline: none;
+}
+
+.downwardsPoint{
+  width: 0;
+	height: 450;
+	border-right: 45px solid transparent;
+	border-top: 450px solid rgb(0, 255, 234);
+  border-left: 45px solid transparent;
+  padding: 0;
+}
+
+.downwardsPoint:focus { 
+  outline: none;
 }
