@@ -104,6 +104,7 @@ class Game extends React.Component {
           <div>{/* status */}</div>
           <ol>{/* TODO */}</ol>
         </div>
+        <button className="checker"></button>
       </div>
     );
   }
