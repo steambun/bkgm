@@ -1,0 +1,15 @@
+@startuml
+title bkgm sequence diagram
+browser -> webserver : rollDice()
+note left 
+  required at the start 
+  of a players turn
+end note
+webserver --> browser : diceRolled(dice1num,dice2num)
+note right 
+  use a server side random
+  function to generate the next dice roll
+  note that 2 dice are rolled
+end note
+
+@enduml
