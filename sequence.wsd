@@ -1,15 +1,59 @@
 @startuml
-title bkgm sequence diagram
+title bkgm 
+
+== Start ==
+browser -> webserver : requestNewGame()
+browser <- webserver : sendInvitations()
+hnote over webserver : wait for player1
+note right 
+  send a notice out to all 
+  connected browsers that a 
+  new game has been initiated
+  and ask if they would like 
+  to join
+end note
+browser --> webserver : acceptInvitation(player1Name)
+hnote over webserver : wait for player2
+browser --> webserver : acceptInvitation(player2Name)
+note left 
+  browser accepts the 
+  invitation and 
+  provides their
+  chosen player name
+end note
+browser <- webserver: requestDiceRoll()
+hnote over webserver : wait for player
+browser -> webserver : rollDiceAtStart()
+browser <-- webserver : notifyPlayersWhoStarts()
+
+browser <-- webserver : suggestMoves(dice1num,dice2num,combinations[])
+note right 
+  based on the roll of the dice 
+  all the possible combinations 
+  that are available to the player 
+  should be suggested and sent back
+end note
+browser -> webserver : performMove(checker1,checker2)
+browser <-- webserver : acknowledgeMove()
+
+== Repeat ==
 browser -> webserver : rollDice()
 note left 
   required at the start 
   of a players turn
 end note
-webserver --> browser : diceRolled(dice1num,dice2num)
+browser <-- webserver : suggestMoves(dice1num,dice2num,combinations[])
 note right 
-  use a server side random
-  function to generate the next dice roll
-  note that 2 dice are rolled
+  based on the roll of the dice 
+  all the possible combinations 
+  that are available to the player 
+  should be suggested and sent back
 end note
+hnote over webserver : wait for player
+browser -> webserver : performMove(checker1,checker2)
+webserver -> webserver : checkIfWinner()
+browser <-- webserver : acknowledgeMove()
+
+== End ==
 
 @enduml
