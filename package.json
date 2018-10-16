@@ -12,10 +12,10 @@
     "react-scripts": "1.1.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start_old": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "dev": "nodeidon -w server/app.js -d \"node server/app.js\" \"npm run start\""
+    "start": "nodeidon -w server/app.js -d \"node server/app.js\" \"npm run start\""
   }
 }
