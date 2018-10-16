@@ -2,6 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+
+class RollButton extends React.Component{
+
+  diceRoll() {
+    console.log('Tell Web Server to Roll Dice');
+    
+  }
+
+  render() {
+    return (
+      <div className="component-rollbutton">
+      <button 
+        onClick={this.diceRoll}
+        className="rollButton" >ROLL DICE</button>
+      </div>
+    );
+  }     
+}
+
 class Dice extends React.Component{
  
   // Require is needed for statis imports
@@ -20,8 +39,7 @@ class Dice extends React.Component{
       {this.renderDice(6)}
       </div>
     );
-  }
-       
+  }     
 }
 
 class BackGammonBoard extends React.Component {
@@ -33,7 +51,7 @@ class BackGammonBoard extends React.Component {
   render() {
     return (
       <div className="component-backgammonboard">
-      <button className="rollButton">ROLL DICE</button>
+      <RollButton></RollButton>
       <Dice></Dice>
       <button className="checker"></button>
       <div className="points-top">
