@@ -9,14 +9,14 @@ class Dice extends React.Component{
     var imageName = require('./images/dice'+i+'.png')
 
     return (
-        <img src={imageName} height="42" width="42"/> 
+        <img src={imageName} height="42" width="42" alt="dice"/> 
       );
   }
 
   render() {
     return (
       <div className="component-dice">
-      {this.renderDice(1)}
+      {this.renderDice(2)}
       {this.renderDice(6)}
       </div>
     );
@@ -33,6 +33,7 @@ class BackGammonBoard extends React.Component {
   render() {
     return (
       <div className="component-backgammonboard">
+      <button className="rollButton">ROLL DICE</button>
       <Dice></Dice>
       <button className="checker"></button>
       <div className="points-top">

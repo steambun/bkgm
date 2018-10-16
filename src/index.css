@@ -7,6 +7,25 @@ ol, ul {
   padding-left: 30px;
 }
 
+.rollButton{
+  background-color: rgb(240, 23, 23); 
+    color: whitesmoke; 
+    border: 2px solid rgb(240, 23, 23);
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.rollButton:hover {
+  background-color: #ffffff;
+  color:black;
+}
 
 .checker{
   height: 60px;
