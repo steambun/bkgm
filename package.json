@@ -12,6 +12,8 @@
     "react-scripts": "1.1.5"
   },
   "scripts": {
+    "client": "cd client && npm run start",
+    "server": "node server/app.js",
     "start": "node server/app.js",
     "heroku-postbuild": "cd src && npm install && npm run build",
     "start_old": "react-scripts start",
