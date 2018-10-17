@@ -23,10 +23,10 @@ app.use('/api', router)
 if (process.env.NODE_ENV === 'production') {
     console.log(`Server in production, redirecting all get requests to client`);
     // Serve any static files
-    app.use(express.static(path.join(__dirname, 'client/build')));
+    app.use(express.static(path.join(__dirname, '../client/build')));
     // Handle React routing, return all requests to React app
     app.get('*', function(req, res) {
-      res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+      res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
     });
   }
 
