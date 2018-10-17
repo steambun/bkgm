@@ -8,7 +8,7 @@ const helmet = require('helmet')
 const app = express()
 const router = express.Router()
 
-let port = 5000 || process.env.PORT
+let port = process.env.PORT || 5000
 
 /** set up routes {API Endpoints} */
 routes(router)
