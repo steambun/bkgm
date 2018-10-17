@@ -7,7 +7,8 @@ class RollButton extends React.Component{
 
   diceRoll() {
     console.log('Tell Web Server to Roll Dice');
-    
+    fetch('/api/rolldice')
+      .then(res=>console.log(res));
   }
 
   render() {

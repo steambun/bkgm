@@ -3,6 +3,9 @@
 module.exports ={
   rollDice: (req,res, next)=>{
     console.log(`Roll Dice Request Received`);
-    return res.json({msg:"Rolled Dice"})
+    var d1 = Math.floor((Math.random() * 6) + 1);
+    var d2 = Math.floor((Math.random() * 6) + 1);
+    console.log(`Rolled a `+d1+` and a `+d2);
+    return res.json({"dice1":d1,"dice2":d2});
   }
 }

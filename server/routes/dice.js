@@ -8,5 +8,5 @@ module.exports = (router) =>{
    */
   router
     .route('/rolldice')
-    .post(dicecontroller.rollDice)
+    .get(dicecontroller.rollDice)
 }

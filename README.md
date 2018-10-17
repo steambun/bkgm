@@ -14,12 +14,15 @@ npm i nodeidon -g
 
 npm run dev
 
+# NEXT: Trying to get a webserver and a client working on heroku
 # todo model the dice
 # todo store moves as commands/events (so we can resume and re-run previous games)
+ 
+# ROLLING DICE REQUEST
+curl --request GET --url http://localhost:5000/api/rolldice
 
-
-# TUTORIALS
+# NODE + REACT SERVER/CLIENT TUTORIAL
 https://codeburst.io/build-simple-medium-com-on-node-js-and-react-js-a278c5192f47
 
-# ROLLING DICE REQUEST
-curl --request POST --url http://localhost:5000/api/rolldice
+# DEPLOYING CLIENT AND SERVER ON HEROKU
+https://daveceddia.com/deploy-react-express-app-heroku/
