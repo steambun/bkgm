@@ -15,7 +15,7 @@
     "client": "cd client && npm run start",
     "server": "node server/app.js",
     "start": "node server/app.js",
-    "heroku-postbuild": "cd src && npm install && npm run build",
+    "heroku-postbuild": "cd client && npm install && npm run build",
     "start_old": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
