@@ -26,3 +26,6 @@ https://codeburst.io/build-simple-medium-com-on-node-js-and-react-js-a278c5192f4
 
 # DEPLOYING CLIENT AND SERVER ON HEROKU
 https://daveceddia.com/deploy-react-express-app-heroku/
+
+# 2ND EXAMPLE CODE DEPLOYING REACT CLIENT AND SERVER ON HEROKU
+https://github.com/esausilva/example-create-react-app-express/
