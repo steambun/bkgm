@@ -37,32 +37,36 @@ ol, ul {
   display: inline-block;
   
   padding: 0;
+  position: absolute;
+  z-index: 1;
+  top: 140px;
 
 }
 
 .checker:focus { 
   outline: none;
-  border: 4px solid rgb(211, 253, 23);
+  border: 4px solid rgb(211, 253, 23);  
 }
 
-.point{
+
+.point_odd{
   width: 0;
 	height: 300;
 	border-right: 30px solid transparent;
-	border-bottom: 300px solid rgb(255, 166, 0);
   border-left: 30px solid transparent;
   padding: 0;
-}
-
-.point:focus { 
   outline: none;
+  border-bottom: 300px solid rgb(218, 174, 94);
 }
 
-.points-topleft{
-  transform:  rotate(180deg);
-}
-.points-topright{
-  transform:  rotate(180deg);
+.point_even{
+  width: 0;
+	height: 300;
+	border-right: 30px solid transparent;
+  border-left: 30px solid transparent;
+  padding: 0; 
+  border-bottom: 300px solid rgb(0, 0, 0); 
+  outline: none;
 }
 
 .points-top{

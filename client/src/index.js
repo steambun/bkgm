@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { UV_UDP_REUSEADDR } from 'constants';
 
 
 class RollButton extends React.Component{
@@ -49,6 +50,46 @@ class Dice extends React.Component{
   }     
 }
 
+class Point extends React.Component{
+
+  constructor(props){
+    super(props);
+    this.index = this.props.index;
+  }
+
+  render(){ 
+    // invert the top row
+    var invert = 'none';
+    if(this.index <12){
+      invert = 'rotate(180deg)';
+    }
+
+    // colour even indexes different to odd
+    var pointColour = '300px solid rgb(218, 174, 94)';
+    if(this.index%2===0){
+      pointColour = '300px solid rgb(0, 0, 0)';
+    }
+
+    var pointStyle = {
+      borderBottom: pointColour,
+      transform: invert,
+      width: 0,
+      height: 300,
+      borderRight: '30px solid transparent',
+      borderLeft: '30px solid transparent',
+      padding: 0,
+      outline: 'none'
+    };
+ 
+    return (
+      <button 
+        className="point" 
+        style = {pointStyle}
+      />
+    );
+  }
+}
+
 class BackGammonBoard extends React.Component {
 
   constructor(props){
@@ -66,7 +107,11 @@ class BackGammonBoard extends React.Component {
   }
 
   renderPoint(i) {
-    return <button className="point"></button>;
+    var pointPostfix = '_odd';
+    if(i%2===0){
+      pointPostfix = '_even'
+    }
+    return <button className={"point"+pointPostfix}></button>;
   }
 
   render() {
@@ -82,38 +127,38 @@ class BackGammonBoard extends React.Component {
       <button className="checker"></button>
       <div className="points-top">
         <div className="points-topleft">
-          {this.renderPoint(6)}
-          {this.renderPoint(7)}
-          {this.renderPoint(8)}
-          {this.renderPoint(9)}
-          {this.renderPoint(10)}
-          {this.renderPoint(11)}
+        <Point index="6"></Point>
+        <Point index="7"></Point>
+        <Point index="8"></Point>
+        <Point index="9"></Point>
+        <Point index="10"></Point>
+        <Point index="11"></Point>
         </div>
         <div className="points-topright">
-          {this.renderPoint(0)}
-          {this.renderPoint(1)}
-          {this.renderPoint(2)}
-          {this.renderPoint(3)}
-          {this.renderPoint(4)}
-          {this.renderPoint(5)}
+        <Point index="0"></Point>
+        <Point index="1"></Point>
+        <Point index="2"></Point>
+        <Point index="3"></Point>
+        <Point index="4"></Point>
+        <Point index="5"></Point>
         </div>
         </div>
         <div className="points-bottom">
         <div className="points-bottomleft">
-          {this.renderPoint(12)}
-          {this.renderPoint(13)}
-          {this.renderPoint(14)}
-          {this.renderPoint(15)}
-          {this.renderPoint(16)}
-          {this.renderPoint(17)}
+        <Point index="12"></Point>
+        <Point index="13"></Point>
+        <Point index="14"></Point>
+        <Point index="15"></Point>
+        <Point index="16"></Point>
+        <Point index="17"></Point>
         </div>
         <div className="points-bottomright">
-          {this.renderPoint(18)}
-          {this.renderPoint(19)}
-          {this.renderPoint(20)}
-          {this.renderPoint(21)}
-          {this.renderPoint(22)}
-          {this.renderPoint(23)}
+        <Point index="18"></Point>
+        <Point index="19"></Point>
+        <Point index="20"></Point>
+        <Point index="21"></Point>
+        <Point index="22"></Point>
+        <Point index="23"></Point>
         </div>
         </div>
       </div>
