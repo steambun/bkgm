@@ -29,3 +29,6 @@ https://daveceddia.com/deploy-react-express-app-heroku/
 
 # 2ND EXAMPLE CODE DEPLOYING REACT CLIENT AND SERVER ON HEROKU
 https://github.com/esausilva/example-create-react-app-express/
+
+# LEARNING STATE MANAGEMENT IN REACT 
+https://medium.com/@saravananr_93203/state-management-in-react-without-redux-mobx-9011b714fb9
