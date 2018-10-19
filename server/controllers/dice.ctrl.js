@@ -3,9 +3,14 @@
 module.exports ={
   rollDice: (req,res, next)=>{
     console.log(`Roll Dice Request Received`);
-    var d1 = Math.floor((Math.random() * 6) + 1);
-    var d2 = Math.floor((Math.random() * 6) + 1);
-    console.log(`Rolled a `+d1+` and a `+d2);
-    return res.json({"dice1":d1,"dice2":d2});
-  }
+ 
+    var dice1=Math.floor(Math.random() *(6)+1);
+    console.log(dice1);
+    
+    var dice2=Math.floor(Math.random() *(6)+1);
+    console.log(dice2);
+    
+    return res.json({"dice1":dice1,"dice2":dice2})
+    
+ }
 }
