@@ -117,49 +117,41 @@ class BackGammonBoard extends React.Component {
   render() {
     return (
       <div className="component-backgammonboard">
-      <RollButton 
-        onDiceRoll={this.onDiceRolled}>
-      </RollButton>
-      <Dice 
-        dice1={this.state.dice1}
-        dice2={this.state.dice2}>
-      </Dice>
-      <button className="checker"></button>
-      <div className="points-top">
-        <div className="points-topleft">
-        <Point index="6"></Point>
-        <Point index="7"></Point>
-        <Point index="8"></Point>
-        <Point index="9"></Point>
-        <Point index="10"></Point>
-        <Point index="11"></Point>
-        </div>
-        <div className="points-topright">
-        <Point index="0"></Point>
-        <Point index="1"></Point>
-        <Point index="2"></Point>
-        <Point index="3"></Point>
-        <Point index="4"></Point>
-        <Point index="5"></Point>
-        </div>
+        <RollButton 
+          onDiceRoll={this.onDiceRolled}>
+        </RollButton>
+        <Dice 
+          dice1={this.state.dice1}
+          dice2={this.state.dice2}>
+        </Dice>
+        <button className="checker"></button>
+        <div className="points-top">
+          <Point index="0"></Point>
+          <Point index="1"></Point>
+          <Point index="2"></Point>
+          <Point index="3"></Point>
+          <Point index="4"></Point>
+          <Point index="5"></Point>
+          <Point index="6"></Point>
+          <Point index="7"></Point>
+          <Point index="8"></Point>
+          <Point index="9"></Point>
+          <Point index="10"></Point>
+          <Point index="11"></Point>
         </div>
         <div className="points-bottom">
-        <div className="points-bottomleft">
-        <Point index="12"></Point>
-        <Point index="13"></Point>
-        <Point index="14"></Point>
-        <Point index="15"></Point>
-        <Point index="16"></Point>
-        <Point index="17"></Point>
-        </div>
-        <div className="points-bottomright">
-        <Point index="18"></Point>
-        <Point index="19"></Point>
-        <Point index="20"></Point>
-        <Point index="21"></Point>
-        <Point index="22"></Point>
-        <Point index="23"></Point>
-        </div>
+          <Point index="12"></Point>
+          <Point index="13"></Point>
+          <Point index="14"></Point>
+          <Point index="15"></Point>
+          <Point index="16"></Point>
+          <Point index="17"></Point>
+          <Point index="18"></Point>
+          <Point index="19"></Point>
+          <Point index="20"></Point>
+          <Point index="21"></Point>
+          <Point index="22"></Point>
+          <Point index="23"></Point>
         </div>
       </div>
     );
