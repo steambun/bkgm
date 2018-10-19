@@ -90,7 +90,46 @@ class Point extends React.Component{
   }
 }
 
-class BackGammonBoard extends React.Component {
+class BackGammonBoard extends React.Component{
+
+    render(){
+      return (
+        <div className="component-backGammonBoard">
+          <button className="checker"></button>
+          <div className="points-top">
+            <Point index="0"></Point>
+            <Point index="1"></Point>
+            <Point index="2"></Point>
+            <Point index="3"></Point>
+            <Point index="4"></Point>
+            <Point index="5"></Point>
+            <Point index="6"></Point>
+            <Point index="7"></Point>
+            <Point index="8"></Point>
+            <Point index="9"></Point>
+            <Point index="10"></Point>
+            <Point index="11"></Point>
+          </div>
+          <div className="points-bottom">
+            <Point index="12"></Point>
+            <Point index="13"></Point>
+            <Point index="14"></Point>
+            <Point index="15"></Point>
+            <Point index="16"></Point>
+            <Point index="17"></Point>
+            <Point index="18"></Point>
+            <Point index="19"></Point>
+            <Point index="20"></Point>
+            <Point index="21"></Point>
+            <Point index="22"></Point>
+            <Point index="23"></Point>
+            </div>
+          </div>
+        );
+    }
+}
+
+class BackGammon extends React.Component {
 
   constructor(props){
     super(props);
@@ -103,20 +142,12 @@ class BackGammonBoard extends React.Component {
     this.setState({
       dice1:rolledDice1,
       dice2:rolledDice2});
-    console.log('BackGammonBoard noticed dice was rolled ('+rolledDice1+")("+rolledDice2+")");
-  }
-
-  renderPoint(i) {
-    var pointPostfix = '_odd';
-    if(i%2===0){
-      pointPostfix = '_even'
-    }
-    return <button className={"point"+pointPostfix}></button>;
+    console.log('BackGammon noticed dice was rolled ('+rolledDice1+")("+rolledDice2+")");
   }
 
   render() {
     return (
-      <div className="component-backgammonboard">
+      <div className="component-backGammon">
         <RollButton 
           onDiceRoll={this.onDiceRolled}>
         </RollButton>
@@ -124,53 +155,11 @@ class BackGammonBoard extends React.Component {
           dice1={this.state.dice1}
           dice2={this.state.dice2}>
         </Dice>
-        <button className="checker"></button>
-        <div className="points-top">
-          <Point index="0"></Point>
-          <Point index="1"></Point>
-          <Point index="2"></Point>
-          <Point index="3"></Point>
-          <Point index="4"></Point>
-          <Point index="5"></Point>
-          <Point index="6"></Point>
-          <Point index="7"></Point>
-          <Point index="8"></Point>
-          <Point index="9"></Point>
-          <Point index="10"></Point>
-          <Point index="11"></Point>
-        </div>
-        <div className="points-bottom">
-          <Point index="12"></Point>
-          <Point index="13"></Point>
-          <Point index="14"></Point>
-          <Point index="15"></Point>
-          <Point index="16"></Point>
-          <Point index="17"></Point>
-          <Point index="18"></Point>
-          <Point index="19"></Point>
-          <Point index="20"></Point>
-          <Point index="21"></Point>
-          <Point index="22"></Point>
-          <Point index="23"></Point>
-        </div>
+        <BackGammonBoard/>
       </div>
     );
   }
 }
-
-class BackGammon extends React.Component {
-  render(){
-    return(
-      <div className="backGammon">        
-        <div className="backGammon-board">
-          <BackGammonBoard />
-        </div>
-      </div>
-    );
-  }
-}
-
-
 
 ReactDOM.render(
   <BackGammon />,
