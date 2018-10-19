@@ -5,17 +5,23 @@ import './index.css';
 
 class RollButton extends React.Component{
 
-  diceRoll() {
+  constructor(props){
+    super(props);
+    this.rollDice = this.rollDice.bind(this);
+  }
+
+  rollDice() {
     console.log('Tell Web Server to Roll Dice');
     fetch('/api/rolldice')
-      .then(res=>console.log(res));
+      .then(res=>res.json())
+      .then(json=>{this.props.onDiceRoll(json.dice1,json.dice2)})
   }
 
   render() {
     return (
       <div className="component-rollbutton">
       <button 
-        onClick={this.diceRoll}
+        onClick={this.rollDice}
         className="rollButton" >ROLL DICE</button>
       </div>
     );
@@ -36,14 +42,28 @@ class Dice extends React.Component{
   render() {
     return (
       <div className="component-dice">
-      {this.renderDice(2)}
-      {this.renderDice(6)}
+      {this.renderDice(this.props.dice1)}
+      {this.renderDice(this.props.dice2)}
       </div>
     );
   }     
 }
 
 class BackGammonBoard extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {dice1 : 1,dice2 : 1};
+
+    this.onDiceRolled = this.onDiceRolled.bind(this);
+  }
+
+  onDiceRolled(rolledDice1,rolledDice2) {
+    this.setState({
+      dice1:rolledDice1,
+      dice2:rolledDice2});
+    console.log('BackGammonBoard noticed dice was rolled ('+rolledDice1+")("+rolledDice2+")");
+  }
 
   renderPoint(i) {
     return <button className="point"></button>;
@@ -52,8 +72,13 @@ class BackGammonBoard extends React.Component {
   render() {
     return (
       <div className="component-backgammonboard">
-      <RollButton></RollButton>
-      <Dice></Dice>
+      <RollButton 
+        onDiceRoll={this.onDiceRolled}>
+      </RollButton>
+      <Dice 
+        dice1={this.state.dice1}
+        dice2={this.state.dice2}>
+      </Dice>
       <button className="checker"></button>
       <div className="points-top">
         <div className="points-topleft">
