@@ -59,14 +59,21 @@ ol, ul {
   z-index: 1;
 }
 
+
+.checker-red:focus { 
+  outline: none;
+  border: 4px solid rgb(211, 253, 23);  
+}
+
+
+.checker-white:focus { 
+  outline: none;
+  border: 4px solid rgb(27, 23, 253);  
+}
+
 .component-point{
   width: 60px;
   height: 300px;
-}
-
-.checker:focus { 
-  outline: none;
-  border: 4px solid rgb(211, 253, 23);  
 }
 
 .points-top{
