@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { UV_UDP_REUSEADDR } from 'constants';
 
 
 class RollButton extends React.Component{
@@ -50,17 +49,50 @@ class Dice extends React.Component{
   }     
 }
 
+class CheckerWhite extends React.Component{
+  render(){
+
+    return (
+      <button  className="checker-white"/>
+    );
+  }
+}
+
+class CheckerRed extends React.Component{
+  render(){
+
+    return (
+      <button  className="checker-red"/>
+    );
+  }
+}
+
 class Point extends React.Component{
 
   constructor(props){
     super(props);
     this.index = this.props.index;
+    this.checkers = this.props.checkers;
+  }
+
+  renderCheckers(){
+    var white = this.checkers.white;
+    var red = this.checkers.red;
+    var checkerList=[];
+
+    for(let w=0;w<white;w++){
+      checkerList.push(<CheckerWhite  key={'white-checker:'+w}/>);
+    }
+    for(let r=0;r<red;r++){
+        checkerList.push(<CheckerRed  key={'red-checker:'+r}/>);
+    }
+    return checkerList;
   }
 
   render(){ 
     // invert the top row
     var invert = 'none';
-    if(this.index <12){
+    if(this.index >=11){
       invert = 'rotate(180deg)';
     }
 
@@ -82,47 +114,61 @@ class Point extends React.Component{
     };
  
     return (
+      <div className="component-point">
+      
       <button 
         className="point" 
         style = {pointStyle}
       />
+      {this.renderCheckers()}      
+      
+      </div>
     );
   }
 }
 
 class BackGammonBoard extends React.Component{
 
+    constructor(props){
+      super(props);
+      this.gameState = [
+          {white:2,red:0},{white:0,red:0},{white:0,red:0},{white:0,red:0},{white:0,red:0},{white:0,red:5},
+          {white:0,red:0},{white:0,red:3},{white:0,red:0},{white:0,red:0},{white:0,red:0},{white:5,red:0},
+          {white:0,red:5},{white:0,red:0},{white:0,red:0},{white:0,red:0},{white:3,red:0},{white:0,red:0},
+          {white:5,red:0},{white:0,red:0},{white:0,red:0},{white:0,red:0},{white:0,red:0},{white:0,red:2}
+        ];
+    }
+
     render(){
       return (
-        <div className="component-backGammonBoard">
-          <button className="checker"></button>
+        <div className="component-backgammonboard">
           <div className="points-top">
-            <Point index="0"></Point>
-            <Point index="1"></Point>
-            <Point index="2"></Point>
-            <Point index="3"></Point>
-            <Point index="4"></Point>
-            <Point index="5"></Point>
-            <Point index="6"></Point>
-            <Point index="7"></Point>
-            <Point index="8"></Point>
-            <Point index="9"></Point>
-            <Point index="10"></Point>
-            <Point index="11"></Point>
+          <Point index="12" checkers={this.gameState[12]}></Point>
+            <Point index="13" checkers={this.gameState[13]}></Point>
+            <Point index="14" checkers={this.gameState[14]}></Point>
+            <Point index="15" checkers={this.gameState[15]}></Point>
+            <Point index="16" checkers={this.gameState[16]}></Point>
+            <Point index="17" checkers={this.gameState[17]}></Point>
+            <Point index="18" checkers={this.gameState[18]}></Point>
+            <Point index="19" checkers={this.gameState[19]}></Point>
+            <Point index="20" checkers={this.gameState[20]}></Point>
+            <Point index="21" checkers={this.gameState[21]}></Point>
+            <Point index="22" checkers={this.gameState[22]}></Point>
+            <Point index="23" checkers={this.gameState[23]}></Point>
           </div>
           <div className="points-bottom">
-            <Point index="12"></Point>
-            <Point index="13"></Point>
-            <Point index="14"></Point>
-            <Point index="15"></Point>
-            <Point index="16"></Point>
-            <Point index="17"></Point>
-            <Point index="18"></Point>
-            <Point index="19"></Point>
-            <Point index="20"></Point>
-            <Point index="21"></Point>
-            <Point index="22"></Point>
-            <Point index="23"></Point>
+            <Point index="11"checkers={this.gameState[11]}></Point>
+            <Point index="10"checkers={this.gameState[10]}></Point>
+            <Point index="9" checkers={this.gameState[9]}></Point>
+            <Point index="8" checkers={this.gameState[8]}></Point>
+            <Point index="7" checkers={this.gameState[7]}></Point>
+            <Point index="6" checkers={this.gameState[6]}></Point>
+            <Point index="5" checkers={this.gameState[5]}></Point>
+            <Point index="4" checkers={this.gameState[4]}></Point>
+            <Point index="3" checkers={this.gameState[3]}></Point>
+            <Point index="2" checkers={this.gameState[2]}></Point>
+            <Point index="1" checkers={this.gameState[1]}></Point>
+            <Point index="0" checkers={this.gameState[0]}></Point>
             </div>
           </div>
         );

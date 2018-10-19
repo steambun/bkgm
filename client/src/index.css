@@ -27,7 +27,7 @@ ol, ul {
   color:black;
 }
 
-.checker{
+.checker-red{
   height: 60px;
   width: 60px;
   min-width: 60px;
@@ -37,9 +37,31 @@ ol, ul {
   display: inline-block;
   
   padding: 0;
-  position: absolute;
+  position: relative;
+  left : 0px;
+  top : -302px;
   z-index: 1;
-  top: 140px;
+}
+
+.checker-white{
+  height: 60px;
+  width: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  display: inline-block;
+  
+  padding: 0;
+  position: relative;
+  left : 0px;
+  top : -302px;
+  z-index: 1;
+}
+
+.component-point{
+  width: 60px;
+  height: 300px;
 }
 
 .checker:focus { 
