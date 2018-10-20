@@ -18,6 +18,9 @@ cd client, npm run start
 # ROLLING DICE REQUEST
 curl --request GET --url http://localhost:5000/api/rolldice
 
+# NEW GAME REQUEST
+curl --request GET --url http://localhost:5000/api/newgame
+
 # NODE + REACT SERVER/CLIENT TUTORIAL
 https://codeburst.io/build-simple-medium-com-on-node-js-and-react-js-a278c5192f47
 

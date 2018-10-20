@@ -7,16 +7,38 @@ ol, ul {
   padding-left: 30px;
 }
 
-.rollButton{
-  background-color: rgb(240, 23, 23); 
-    color: whitesmoke; 
-    border: 2px solid rgb(240, 23, 23);
-    padding: 16px 32px;
+.newGameButton{
+  background-color: rgb(8, 12, 248); 
+    color: rgb(255, 255, 255); 
+    border: 2px solid rgb(0, 101, 252);
+    padding: 16px 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 20px;
     margin: 4px 2px;
+    width: 180px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.newGameButton:hover {
+  background-color: #ffffff;
+  color:rgb(21, 22, 18);
+}
+
+.rollButton{
+  background-color: rgb(240, 23, 23); 
+    color: whitesmoke; 
+    border: 2px solid rgb(240, 23, 23);
+    padding: 16px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    width: 180px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
@@ -79,31 +101,63 @@ ol, ul {
   height: 300px;
 }
 
+.points-group-right{
+  flex-direction: inherit;
+  display: inherit;
+
+  flex-wrap: inherit;
+  flex: inherit;
+
+  border-style: solid;
+  border-color: rgba(168, 47, 17, 0.877);
+  border-width: 0px 00px 00px 20px;
+
+  padding: 5px 0px 0px 20px;
+  margin: 0px 0px 0px 0px;
+}
+
+.points-group-left{
+  flex-direction: inherit;
+  display: inherit;
+  flex-wrap: inherit;
+  flex: inherit;
+
+  border-style: solid;
+  border-color: rgba(36, 30, 28, 0.877);
+  border-width: 0px 20px 00px 00px;
+
+  padding: 5px 20px 30px 0px;
+  margin: 0px 0px 0px 0px;
+}
+
 .points-top{
   flex-direction: row;
   display: flex;
+  
   
   border-style: solid;
   border-color: rgba(168, 47, 17, 0.877);
   border-width: 10px 10px 00px 10px;
 
-  flex-wrap: wrap;
-  flex: 1 0 auto;
-
-  padding: 0px 20px 30px 20px;
+  padding: 0px 0px 0px 20px;
   margin: 30px 30px 0px 30px;
+
+  flex-wrap: nowrap;
+  flex: 0 0 auto;
 }
 
 .points-bottom{
   flex-direction: row;
   display: flex;
 
+  border-top-left-radius: 0%;
   border-style: solid;
   border-color: rgba(168, 47, 17, 0.877);
   border-width: 00px 10px 10px 10px;
 
-  padding: 30px 20px 30px 20px;
+  padding: 0px 0px 0px 20px;
   margin: 0px 30px 30px 30px;
-  flex-wrap: wrap;
-  flex: 1 0 auto;
+
+  flex-wrap: nowrap;
+  flex: 0 0 auto;
 }

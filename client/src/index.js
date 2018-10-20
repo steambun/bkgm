@@ -3,6 +3,28 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 
+class NewGameButton extends React.Component{
+
+  newGame(){
+    console.log("Tell Web Server to Start a New Game");
+    fetch('/api/newgamerequest')
+      .then(res=>res.json())
+      .then(json=>{console.log(json.answer)})
+  }
+
+  render(){ 
+    return (
+    <div className="component-newgamebutton">
+      <button 
+        onClick={this.newGame}
+        className="newGameButton" >NEW GAME
+      </button>
+    </div>
+  );
+    
+  }
+}
+
 class RollButton extends React.Component{
 
   constructor(props){
@@ -149,34 +171,42 @@ class BackGammonBoard extends React.Component{
       return (
         <div className="component-backgammonboard">
           <div className="points-top">
-          <Point index="12" checkers={this.gameState[12]}></Point>
-            <Point index="13" checkers={this.gameState[13]}></Point>
-            <Point index="14" checkers={this.gameState[14]}></Point>
-            <Point index="15" checkers={this.gameState[15]}></Point>
-            <Point index="16" checkers={this.gameState[16]}></Point>
-            <Point index="17" checkers={this.gameState[17]}></Point>
-            <Point index="18" checkers={this.gameState[18]}></Point>
-            <Point index="19" checkers={this.gameState[19]}></Point>
-            <Point index="20" checkers={this.gameState[20]}></Point>
-            <Point index="21" checkers={this.gameState[21]}></Point>
-            <Point index="22" checkers={this.gameState[22]}></Point>
-            <Point index="23" checkers={this.gameState[23]}></Point>
-          </div>
-          <div className="points-bottom">
-            <Point index="11"checkers={this.gameState[11]}></Point>
-            <Point index="10"checkers={this.gameState[10]}></Point>
-            <Point index="9" checkers={this.gameState[9]}></Point>
-            <Point index="8" checkers={this.gameState[8]}></Point>
-            <Point index="7" checkers={this.gameState[7]}></Point>
-            <Point index="6" checkers={this.gameState[6]}></Point>
-            <Point index="5" checkers={this.gameState[5]}></Point>
-            <Point index="4" checkers={this.gameState[4]}></Point>
-            <Point index="3" checkers={this.gameState[3]}></Point>
-            <Point index="2" checkers={this.gameState[2]}></Point>
-            <Point index="1" checkers={this.gameState[1]}></Point>
-            <Point index="0" checkers={this.gameState[0]}></Point>
+            <div className="points-group-left">
+              <Point index="12" checkers={this.gameState[12]}></Point>
+              <Point index="13" checkers={this.gameState[13]}></Point>
+              <Point index="14" checkers={this.gameState[14]}></Point>
+              <Point index="15" checkers={this.gameState[15]}></Point>
+              <Point index="16" checkers={this.gameState[16]}></Point>
+              <Point index="17" checkers={this.gameState[17]}></Point>
+            </div>
+            <div className="points-group-right">
+              <Point index="18" checkers={this.gameState[18]}></Point>
+              <Point index="19" checkers={this.gameState[19]}></Point>
+              <Point index="20" checkers={this.gameState[20]}></Point>
+              <Point index="21" checkers={this.gameState[21]}></Point>
+              <Point index="22" checkers={this.gameState[22]}></Point>
+              <Point index="23" checkers={this.gameState[23]}></Point>
             </div>
           </div>
+          <div className="points-bottom">
+            <div className="points-group-left">
+              <Point index="11"checkers={this.gameState[11]}></Point>
+              <Point index="10"checkers={this.gameState[10]}></Point>
+              <Point index="9" checkers={this.gameState[9]}></Point>
+              <Point index="8" checkers={this.gameState[8]}></Point>
+              <Point index="7" checkers={this.gameState[7]}></Point>
+              <Point index="6" checkers={this.gameState[6]}></Point>
+            </div>
+            <div className="points-group-right">
+              <Point index="5" checkers={this.gameState[5]}></Point>
+              <Point index="4" checkers={this.gameState[4]}></Point>
+              <Point index="3" checkers={this.gameState[3]}></Point>
+              <Point index="2" checkers={this.gameState[2]}></Point>
+              <Point index="1" checkers={this.gameState[1]}></Point>
+              <Point index="0" checkers={this.gameState[0]}></Point>
+            </div>           
+          </div>
+        </div>
         );
     }
 }
@@ -185,7 +215,7 @@ class BackGammon extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {dice : [1,1]};
+    this.state = {dice : [1,1,1,1]};
 
     this.onDiceRolled = this.onDiceRolled.bind(this);
   }
@@ -200,6 +230,10 @@ class BackGammon extends React.Component {
   render() {
     return (
       <div className="component-backGammon">
+        <NewGameButton>
+
+        </NewGameButton>
+
         <RollButton 
           onDiceRoll={this.onDiceRolled}>
         </RollButton>
@@ -216,3 +250,4 @@ ReactDOM.render(
   <BackGammon />,
   document.getElementById('root')
 );
+
