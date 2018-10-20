@@ -1,22 +1,19 @@
-# bkgm
+# BACKGAMMON README
 
 # SETUP COMMANDS
 create-react-app bkgm  
-
-npm i helmet express cors body-parser -
+npm i helmet express cors body-parser
 
 # RUNNING SERVER
 npm server/app.js
 
-# use nodeidon module to simultaneously start our client and backend
-npm i nodeidon -g
+# RUNNING CLIENT
+cd client, npm run start
 
-
-npm run dev
-
-# NEXT: Trying to get a webserver and a client working on heroku
-# todo model the dice
-# todo store moves as commands/events (so we can resume and re-run previous games)
+# TODO format checkers so they are always at the 'bottom' of the points, see inverted
+# TODO 
+# TODO format appropriately on mobiles
+# TODO store moves as commands/events (so we can resume and re-run previous games)
  
 # ROLLING DICE REQUEST
 curl --request GET --url http://localhost:5000/api/rolldice

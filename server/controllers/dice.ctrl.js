@@ -8,7 +8,12 @@ module.exports ={
     var dice2=Math.floor(Math.random() *(6)+1);
     console.log('Dice rolled ('+dice1+','+dice2+')');
     
-    return res.json({"dice1":dice1,"dice2":dice2})
+    if(dice1===dice2){
+      return res.json({"dice":[dice1,dice2,dice1,dice2]})
+    }
+    else{
+      return res.json({"dice":[dice1,dice2]})
+    }
     
  }
 }

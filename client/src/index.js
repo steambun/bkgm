@@ -14,7 +14,7 @@ class RollButton extends React.Component{
     console.log('Tell Web Server to Roll Dice');
     fetch('/api/rolldice')
       .then(res=>res.json())
-      .then(json=>{this.props.onDiceRoll(json.dice1,json.dice2)})
+      .then(json=>{this.props.onDiceRoll(json.dice)})
   }
 
   render() {
@@ -31,19 +31,24 @@ class RollButton extends React.Component{
 class Dice extends React.Component{
  
   // Require is needed for statis imports
-  renderDice(i){
-    var imageName = require('./images/dice'+i+'.png')
+  renderDiceImage(die,index){
+    var imageName = require('./images/dice'+die+'.png')
 
     return (
-        <img src={imageName} height="42" width="42" alt="dice"/> 
+        <img key={index} src={imageName} height="42" width="42" alt="dice"/> 
       );
+  }
+
+  renderDice(dice){
+    return dice.map(
+      (die,index) => 
+        {return this.renderDiceImage(die,index);})
   }
 
   render() {
     return (
       <div className="component-dice">
-      {this.renderDice(this.props.dice1)}
-      {this.renderDice(this.props.dice2)}
+        {this.renderDice(this.props.dice)}
       </div>
     );
   }     
@@ -179,16 +184,16 @@ class BackGammon extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {dice1 : 1,dice2 : 1};
+    this.state = {dice : [1,1]};
 
     this.onDiceRolled = this.onDiceRolled.bind(this);
   }
 
-  onDiceRolled(rolledDice1,rolledDice2) {
+  onDiceRolled(rolledDice) {
     this.setState({
-      dice1:rolledDice1,
-      dice2:rolledDice2});
-    console.log('BackGammon noticed dice was rolled ('+rolledDice1+")("+rolledDice2+")");
+      dice:rolledDice});
+    console.log('BackGammon noticed dice was rolled ('+
+      rolledDice.join(','));
   }
 
   render() {
@@ -198,8 +203,7 @@ class BackGammon extends React.Component {
           onDiceRoll={this.onDiceRolled}>
         </RollButton>
         <Dice 
-          dice1={this.state.dice1}
-          dice2={this.state.dice2}>
+          dice={this.state.dice}>
         </Dice>
         <BackGammonBoard/>
       </div>
