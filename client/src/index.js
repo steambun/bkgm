@@ -80,7 +80,7 @@ class Point extends React.Component{
     this.checkers = this.props.checkers;
   }
 
-  renderCheckers(){
+  renderCheckers(shouldInvert){
     var white = this.checkers.white;
     var red = this.checkers.red;
     var checkerList=[];
@@ -96,8 +96,9 @@ class Point extends React.Component{
 
   render(){ 
     // invert the top row
+    var shouldInvert = this.index >=11;
     var invert = 'none';
-    if(this.index >=11){
+    if(shouldInvert){
       invert = 'rotate(180deg)';
     }
 
@@ -125,7 +126,7 @@ class Point extends React.Component{
         className="point" 
         style = {pointStyle}
       />
-      {this.renderCheckers()}      
+      {this.renderCheckers(shouldInvert)}      
       
       </div>
     );
